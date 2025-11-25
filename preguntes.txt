@@ -1,0 +1,65 @@
+T1|Què passa si el paquet arriba massa tard?|El paquet es considera perdut.|Rebrem el paquet amb menys retard.|El paquet no arribarà mai.
+T1|El retard de transmissió és...|el temps que triga el dispositiu de xarxa a transmetre els bits cap al medi de transmissió.|el temps que triga la informació a ser processada pel node (control d'errors, etc.).|el temps que triga el senyal a ser transmès pel medi.
+T1|Quants bits són necessaris per codificar 8 simbols?|3.|2^8.|8.
+T1|Quina velocitat és més elevada?|1 MBps.|1 kbps.|1 Mbps.
+T1|El retard de propagació és...|... el temps que triga el senyal a ser transmès pel medi.|el temps que triga la informació a ser processada pel node (control d'errors, etc.).|el temps que triga el dispositiu de xarxa a transmetre els bits cap al medi de transmissió.
+T1|El troughput d'una xarxa es pot definir...|com la quantitat efectiva de bits que transmet un enllaç.|com el temps que triga un paquet en anar i tornar.|com la variació de retard que experimenta.
+T1|Quin és l'ample de banda que proporciona Gigabit Ethernet?|1000 Mbps.|10 Mbps.|10 Gbps.
+T1|Quina velocitat és més elevada?|9 Mbps.|1 kbps.|1 MBps.
+T1|Què limita la velocitat de connexió a Internet des de dins de casa?|L'enllaç que té menys ample de banda.|L'enllaç que té més ample de banda.|El programa que fa servir menys la xarxa.
+T1|Què passa si hi ha un error de transmissió no recuperable?|Es perd el paquet.|Rebrem el paquet amb menys retard.|El paquet arriba abans.
+T1|Si volem connectar quatre ordinadors amb cable a una LAN, què necessitem?|Un commutador.|Un rúter.|Un punt d'accés.
+T1|Quina és l'adreça IP de la NIC loopback, habitualment?|127.0.0.1.|192.168.1.1.|8.8.8.8.
+T1|Quantes NIC pot tenir un ordinador portàtil?|Més d'una.|No en té cap.|Més de cinc.
+T1|Què fa un punt d'accés?|Permet formar una xarxa Wi-Fi.|Estableix una xarxa cablejada.|Utilitza un SDN.
+T1|Els rúters...|...permeten interconnectar diferents xarxes.|...detecten errors de transmissió.|eliminen retards a la transmissió.
+T1|Com s'anomena habitualment la NIC virtual que usen els sistemes Linux?|Loopback.|Gateway.|Rúter.
+T1|Què significa l'acrònim NIC?|Network Interface Controller.|Navigation Internet Computer.|Network Internet Computing.
+T1|Gràcies al cloud computing...|Els servidors són escalables.|Els servidors estan limitats.|Els servidors no atenen els clients.
+T1|Què interconnecta un rúter, habitualment?|Xarxes diferents.|Una xarxa sense fils amb una cablejada.|Servidors.
+T1|On podem tenir el nostre servidor?|A les nostres dependències o en una empresa externa.|Al mòbil, per temes de seguretat.|Un particular no el pot tenir.
+T1|Quin dels protocols parteix la informació en segments?|TCP.|IP.|UDP.
+T1|Quina d'aquestes és una adreça IP vàlida?|10.40.32.1.|8.8.8.8.8.|192.1668.33.12.
+T1|Què significa MAC?|Media Access Control.|Multimedia Access Control.|Media Available Computer.
+T1|En quina capa s'usen els números de port?|Transport.|Xarxa.|Xarxa i enllaç.
+T1|La capa de transport...|tracta de la transmissió de dades entre processos en diferents punts de la xarxa.|tracta de la transmissió de dades entre nodes contiguus de la xarxa.|tracta de la transmissió de dades entre punts remots de la xarxa.
+T1|Quin d'aquests valors no és una adreça IP?|292.310.2.|255.255.255.1.|3.3.3.3.
+T1|Quina d'aquestes és una adreça IP valida?|192.168.10.2.|193.194.312.8.|8.8.8.8.8.
+T1|Quin d'aquests protocols fa servir el mètode GET?|HTTP.|TCP.|UDP.
+T1|Com s'anomena el sistema de codificació de text i símbols actual?|UTF.|Encode.|ASCII.
+T1|Com s'anomena la PDU de la capa d'enllaç?|Trama (Frame).|Datagrama.|Segment.
+T1|Quina de les següent situacions és pròpia de la commutació de circuits?|Quan s'estableix un circuit, aquest no el pot usar cap altra comunicació.|Escala bé.|Un circuit té capacitat il-limitada.
+T1|Quina d'aquestes xarxes té relació amb proporcionar serveis de xarxa entre parquings d'una ciutat?|MAN.|LAN.|PAN.
+T1|En quin model de comunicació es fa servir el TCP?|En el model orientat a la connexió.|En el model de commutació de circuits.|En el model no orientat a la connexió.
+T1|En una transmissió orientada a la connexió...|... hi ha una fase d'establiment de connexió i un control dels diferents paquets que es transmetran.|... hi ha una fase d'establiment de connexió al circuit commutat.|es connecta un circuit commutat.
+T1|Què és una SAN?|Amb una xarxa d'unitats d'emmagatzematge.|Amb una xarxa per distribuir el contingut de Netflix.|Amb una xarxa d'alimentació ininterrompuda.
+T1|Quina de les tecnologies no s'ajusta a la commutació de paquets?|La xarxa telefònica antiga (POTS).|La VoIP.|Internet.
+T1|Quin model de transmissió està pensat per transmetre poques dades ràpidament?|En el model no orientat a la connexió.|En el model de commutació de circuits.|En el model orientat a la connexió.
+T1|En quin model de comunicació no es controla el flux d'enviament de paquets?|En el model no orientat a la connexió.|En el model de commutació de circuits.|En el model orientat a la connexió.
+T1|Com s'anomena l'establiment de connexió habitualment?|Handshake.|Full-duplex.|Time to live.
+T1|Com s'anomena la comunicació en ambdues direccions, però només una a la vegada?|Half-duplex.|Orientada a la connexió.|Full-duplex.
+T2|Com respon un servidor SMTP a la connexió del client?|Pleased to meet you.|Life long and pro prosper.|Well done.
+T2|Quin dels protocol de correu electrònic permet a un servidor rebre el correu?|SMTP.|POP3.|IMAP.
+T2|Quin d'aquests nombres no és un codi HTTP?|3456.|500.|410.
+T2|Què significa SMTP?|Simple Mail Transfer Protocol.|Sending Mails Transport Protocol.|Simple Message Transfer Protocol.
+T2|Quina d'aquestes capçaleres forma part del body d'un correu?|Content-Disposition.|Date.|Subject.
+T2|Quin d'aquests protocols permet obtenir correu i gestionar-lo al servidor?|IMAP.|POP3.|SMTP.
+T2|Què permet fer POP3?|Només, autenticació d'usuari, obtenir i eliminar correus del servidor.|Obtenir correu i gestionar-lo al servidor.|Enviar correus i transferir-los entre servidors.
+T2|Quin d'aquests és un intrús dels mètodes HTTP?|JUMP.|HEAD.|GET.
+T2|Què significa POP3?|Post Office Protocol.|Postman Office Protocols.|Point of Protocols.
+T2|Què és necessari per a què funcioni HTTPS?|Un certificat de servidor.|Un clauer electrònic.|Una contrasenya.
+T3|Quines característiques té el protocol TCP a la capa de transport?|Estableix una connexió, parteix en contingut en segments i té cura que aquests arribin a desti.|Estableix una connexió i envia un fluxe de datagrames amb UDP en la capa de transport.|Senzillament proporciona la possibilitat d'afegir port origen, destí i poca cosa més, a un datagrama.
+T3|El rang de ports 1024-49151 és el...|Rang registered ports.|Rang well-known ports.|Rang dynamic ports.
+T3|Què és el Slow Start?|El mecanisme per evitar congestions a la xarxa amb TCP.|El mecanisme per fer segments més grans que la MTU.|El mecanisme per establir una connexió TCP.
+T3|Què permet fer el fet de tenir a la capçalera TCP dades d'ambdós sentits de la comunicació?|Fer piggybacking.|Fer exponential backoff.|Fer el moneypenny.
+T3|Quin port sol utilitzar el protocol SMTP segur?|465.|110.|995.
+T3|Quina de les afirmacions següents no és certa?|Per fer el checksum, a banda de les dades, es consideren els ports origen i desti.|Per fer el checksum, a banda de les dades, es considera la longitud del paquet UDP.|Per fer el checksum, a banda de les dades, es consideren les adreces IP origen i destí.
+T4|Quina d'aquestes regles port forwarding sembla bona?|if destination port = 8080 then destination ip = 192.168.1.2.|if source port = 80 then destination ip = 192.168.1.20.|if destination port = 80 then destination ip = 93.118.1.20.
+T4|Quants bits té el camp Version de la capçalera IPv4?|4.|32.|8.
+T4|En quin cas no es perd un datagrama?|Quan n'arriben tots els seus fragments.|Quan arriba a un rúter amb la memòria plena.|Quan hi ha un error de transmissió a nivell d'enllaç i no s'usa ARQ.
+T4|Què té d'especial la IP 169.254.33.19?|És d'autoconfiguració.|Fa referència a la pròpia màquina.|És de broadcast.
+T4|Quants bits té el camp Source Address de la capçalera IPv4?|32.|16.|8.
+T4|Què significa l'acrònim ARP?|Address Resolution Protocol.|Advanced Resolution Protocol.|Address Restful Protocol.
+T4|Quin d'aquests camps de la capçalera IPv4 no es fa servir en la fragmentació?|TTL|Offset.|MF.
+T4|Quina d'aquestes adreces IP podria ser la interna d'un rúter domèstic?|192.168.200.1.|1.2.3.4.|195.23.17.9.
+T4|Quina d'aquestes adreces IP no forma part de la xarxa 192.168.1.0/24?|192.168.7.3.|192.168.1.99.|192.168.1.100.
