@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador d'Examen de Xarxes (Hugo)</title>
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        /* === 1. RESET BÀSIC I VARIABLES === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --color-primary: #007bff; /* Blau net i professional */
+            --color-secondary: #f4f4f9; /* Fons molt clar */
+            --color-text: #333;
+            --color-light-gray: #eee;
+            --duration: 0.3s;
+        }
+
+        /* === 2. ESTIL GENERAL I TIPOGRAFIA === */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinea a dalt en pantalla gran */
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px; /* Límita l'amplada per a millor lectura */
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: box-shadow var(--duration) ease-in-out;
+        }
+        
+        /* === 3. CAPÇALERA === */
+        h1 {
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300; /* Minimalista */
+        }
+        
+        /* === 4. CONTROLS (INICI) === */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 15px;
+        }
+        
+        #selectorTema {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color var(--duration);
+        }
+
+        #selectorTema:focus {
+            border-color: var(--color-primary);
+            outline: none;
+        }
+
+        /* === 5. BOTONS (FLUIDESA I ANIMACIÓ) === */
+        button {
+            padding: 12px 20px;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color var(--duration), transform var(--duration);
+            font-weight: 600;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #0056b3;
+            transform: translateY(-2px); /* Lleugera animació al passar el ratolí */
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        
+        button:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* === 6. ÀREA DE PREGUNTES I OPCIONS === */
+        #examenArea {
+            padding: 20px 0;
+            border-top: 1px solid var(--color-light-gray);
+            margin-top: 20px;
+        }
+
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 25px;
+            font-size: 1.2em;
+            color: #222;
+        }
+
+        /* Estil de les opcions (Minimalisme) */
+        .option label {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: background-color var(--duration), border-color var(--duration);
+            cursor: pointer;
+        }
+        
+        .option label:hover {
+            background-color: var(--color-secondary);
+            border-color: var(--color-primary);
+        }
+
+        .option input[type="radio"] {
+            margin-right: 15px;
+            /* Estilitzar el radio button (opcional, però manté la fluïdesa) */
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            transition: border-color var(--duration);
+            position: relative;
+        }
+        
+        /* Estil quan l'opció està seleccionada */
+        .option input[type="radio"]:checked {
+            border-color: var(--color-primary);
+        }
+
+        .option input[type="radio"]:checked::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* === 7. RESULTATS === */
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--color-secondary);
+            border-radius: 8px;
+        }
+
+        .results h2 {
+            margin-bottom: 15px;
+            color: #555;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        #resultsContent {
+            white-space: pre-wrap; /* Manté el format del text generat */
+            font-size: 0.95em;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        /* === 8. MEDIA QUERIES (ADAPTACIÓ MÒBIL) === */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            /* Apilar controls per a millor ús amb el dit */
+            .controls {
+                flex-direction: column;
+            }
+            
+            button, #selectorTema {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simulador d'Examen de Xarxes</h1>
+
+    <div class="controls">
+        <label for="selectorTema">Selecciona el Tema:</label>
+        <select id="selectorTema">
+            </select>
+        <button id="btnIniciar">Iniciar Examen</button>
+    </div>
+
+    <div id="examenArea" class="hidden">
+        <p class="question-text" id="questionText"></p>
+        <form id="optionsForm"></form>
+        <button id="btnSeguent">Següent Pregunta</button>
+    </div>
+
+    <div class="results hidden" id="resultsArea">
+        <h2>Resultats</h2>
+        <pre id="resultsContent"></pre>
+    </div>
+</div>
+
+<script>
+// El codi JavaScript de la versió anterior (Càrrega, Lògica i Funcions) es manté aquí.
+// Per optimitzar i mantenir el codi net, et recomano que copiïs AQUÍ el codi JavaScript COMPLET que et vaig donar anteriorment.
+
+const MAX_PREGUNTES_PER_TEMA = 10;
+const MAX_PREGUNTES_BARREJAT = 20;
+const NOM_FITXER_PREGUNTES = 'preguntes.txt';
+
+let bancDePreguntes = {};
+let preguntesExamen = [];
+let preguntesIncorrectes = [];
+let indexPreguntaActual = 0;
+
+// Funció de Barrejat (substitut de Collections.shuffle)
+function barrejarArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// 1. Càrrega de Dades
+async function carregarPreguntes() {
+    try {
+        const response = await fetch(NOM_FITXER_PREGUNTES);
+        if (!response.ok) throw new Error('No s\'ha trobat el fitxer de preguntes.');
+        
+        const text = await response.text();
+        const linies = text.split('\n');
+        
+        linies.forEach(linia => {
+            const parts = linia.trim().split('|').map(p => p.trim());
+            if (parts.length >= 4) {
+                const tema = parts[0];
+                const text = parts[1];
+                const respostaCorrecta = parts[2];
+                const opcionsIncorrectes = parts.slice(3);
+
+                const opcions = [respostaCorrecta, ...opcionsIncorrectes];
+                
+                if (!bancDePreguntes[tema]) {
+                    bancDePreguntes[tema] = [];
+                }
+                bancDePreguntes[tema].push({ tema, text, respostaCorrecta, opcions });
+            }
+        });
+
+        // Omplir el selector de temes
+        const selector = document.getElementById('selectorTema');
+        selector.innerHTML = '';
+        
+        // Afegeix la opció per defecte abans de carregar els temes
+        const opcioDefecte = document.createElement('option');
+        opcioDefecte.value = '';
+        opcioDefecte.textContent = '— Tria un tema —';
+        opcioDefecte.disabled = true;
+        opcioDefecte.selected = true;
+        selector.appendChild(opcioDefecte);
+
+        Object.keys(bancDePreguntes).sort().forEach(tema => {
+            const option = document.createElement('option');
+            option.value = tema;
+            option.textContent = tema;
+            selector.appendChild(option);
+        });
+        const optionBarrejat = document.createElement('option');
+        optionBarrejat.value = 'BARREJAT';
+        optionBarrejat.textContent = 'BARREJAT (20 Preguntes)';
+        selector.appendChild(optionBarrejat);
+        
+        // Habilita el botó d'inici un cop carregat
+        document.getElementById('btnIniciar').disabled = false;
+
+
+    } catch (error) {
+        console.error("Error carregant les preguntes:", error);
+        alert("Error carregant les preguntes. Assegura't que 'preguntes.txt' existeix.");
+        document.getElementById('btnIniciar').disabled = true;
+    }
+}
+
+// 2. Generació de l'Examen
+function obtenirPreguntesExamen(temaEscollit) {
+    let pool = [];
+    if (temaEscollit === 'BARREJAT') {
+        Object.values(bancDePreguntes).forEach(llista => {
+            pool.push(...llista);
+        });
+        barrejarArray(pool);
+        return pool.slice(0, MAX_PREGUNTES_BARREJAT);
+    } else {
+        pool = [...bancDePreguntes[temaEscollit]]; 
+        barrejarArray(pool);
+        return pool.slice(0, MAX_PREGUNTES_PER_TEMA);
+    }
+}
+
+// 3. Lògica de l'Examen
+function iniciarExamen() {
+    const temaEscollit = document.getElementById('selectorTema').value;
+    
+    if (temaEscollit === '') {
+        alert("Si us plau, selecciona un tema abans de començar.");
+        return;
+    }
+
+    preguntesExamen = obtenirPreguntesExamen(temaEscollit);
+    
+    if (preguntesExamen.length === 0) {
+        alert("No s'han pogut generar preguntes. Tria un altre tema.");
+        return;
+    }
+
+    // Inicialització
+    indexPreguntaActual = 0;
+    preguntesIncorrectes = [];
+    document.getElementById('examenArea').classList.remove('hidden');
+    document.getElementById('resultsArea').classList.add('hidden');
+    document.getElementById('btnIniciar').disabled = true;
+    
+    mostrarPregunta();
+}
+
+function mostrarPregunta() {
+    if (indexPreguntaActual >= preguntesExamen.length) {
+        mostrarResultatsFinals();
+        return;
+    }
+    
+    const p = preguntesExamen[indexPreguntaActual];
+    const form = document.getElementById('optionsForm');
+    form.innerHTML = '';
+    
+    // Mostra el text de la pregunta
+    document.getElementById('questionText').textContent = `PREGUNTA ${indexPreguntaActual + 1}/${preguntesExamen.length} (TEMA ${p.tema}): ${p.text}`;
+
+    // Barreja les opcions (recreant el getOpcionsBarrejades)
+    const opcionsBarrejades = [...p.opcions];
+    barrejarArray(opcionsBarrejades); 
+
+    // Crea els botons de ràdio
+    opcionsBarrejades.forEach((opcio, index) => {
+        const div = document.createElement('div');
+        div.classList.add('option');
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'resposta';
+        input.value = opcio;
+        input.id = `opcio${index}`;
+        
+        const label = document.createElement('label');
+        label.setAttribute('for', `opcio${index}`);
+        label.textContent = opcio;
+        
+        div.appendChild(input);
+        div.appendChild(label);
+        form.appendChild(div);
+    });
+    
+    // Si és l'última pregunta, canvia el text del botó
+    if (indexPreguntaActual === preguntesExamen.length - 1) {
+        document.getElementById('btnSeguent').textContent = "Finalitzar Examen";
+    } else {
+        document.getElementById('btnSeguent').textContent = "Següent Pregunta";
+    }
+    
+    // Avança l'índex per a la propera iteració
+    indexPreguntaActual++;
+}
+
+function processarResposta() {
+    // L'índex ja s'ha incrementat en mostrarPregunta, així que mirem la pregunta anterior
+    const p = preguntesExamen[indexPreguntaActual - 1]; 
+    const respostaSeleccionada = document.querySelector('input[name="resposta"]:checked');
+    
+    if (respostaSeleccionada) {
+        const respostaUsuari = respostaSeleccionada.value;
+        if (respostaUsuari !== p.respostaCorrecta) {
+            preguntesIncorrectes.push(p);
+        }
+    } else {
+        // No seleccionar res es considera incorrecte
+        preguntesIncorrectes.push(p);
+    }
+
+    mostrarPregunta();
+}
+
+// 4. Resultats Finals
+function mostrarResultatsFinals() {
+    document.getElementById('examenArea').classList.add('hidden');
+    document.getElementById('resultsArea').classList.remove('hidden');
+    document.getElementById('btnIniciar').disabled = false;
+
+    const totals = preguntesExamen.length;
+    const incorrectes = preguntesIncorrectes.length;
+    const correctes = totals - incorrectes;
+    const puntuacio = (correctes / totals) * 10;
+
+    let resultatText = "--- RESULTATS DE L'EXAMEN ---\n";
+    resultatText += `Puntuació final: ${puntuacio.toFixed(2)} sobre 10.00\n`;
+    resultatText += `Respostes Correctes: ${correctes}\n`;
+    resultatText += `Respostes Incorrectes: ${incorrectes}\n`;
+
+    if (incorrectes > 0) {
+        resultatText += "\nDETALL DE PREGUNTES INCORRECTES:\n";
+        preguntesIncorrectes.forEach(p => {
+            resultatText += `\n❌ TEMA ${p.tema}: ${p.text}\n`;
+            resultatText += `   (La correcta era: ${p.respostaCorrecta})\n`;
+        });
+    } else {
+        resultatText += "\n🎉 MOLT BE! HAS FET TOT L'EXAMEN CORRECTAMENT! 🎉";
+    }
+
+    document.getElementById('resultsContent').textContent = resultatText;
+}
+
+// Listeners
+document.getElementById('btnIniciar').addEventListener('click', iniciarExamen);
+document.getElementById('btnSeguent').addEventListener('click', processarResposta);
+
+// Inici
+carregarPreguntes();
+</script>
+
+</body>
+</html>
