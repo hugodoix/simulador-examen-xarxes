@@ -119,6 +119,26 @@ T4|La IP 192.168.1.1, de quin tipus és?|IP privada.|IP pública.|IP d'autoconfi
 T4|El camp identification...|...es fa servir per reensamblar els fragments.|...fa referència al número de seqüència del datagrama.|...es fa servir per identificar el port origen.
 T4|Què és el CIDR?|Un esquema que facilita assignar IPs a ASs.|Defineix 4 classes d'adreces IP.|Una marca de sidra.
 T4|Quants bits de xarxa i màquina hi ha a l'adreça 172.31.0.0/16?|Hi ha 16 bits per identificar la xarxa i 16 la màquina.|Hi ha 16 bits per identificar la xarxa i 8 la màquina.|Hi ha 32 bits per identificar la xarxa i 32 la màquina.
+T4|Quantes subxarxes es poden crear amb 2 bits?|4|2|8
+T4|Si vols una subxarxa amb com a mínim 100 hosts, quina màscara pots fer servir?|/25|/26|/27
+T4|Què representa la màscara de xarxa?|Quants bits s’usen per a la part de xarxa|El tipus de NAT|Quants dispositius es poden connectar
+T4|Quina és l'adreça de broadcast de la subxarxa 193.144.16.0/26?|193.144.16.63|193.144.16.62|193.144.16.64
+T4|Quina és la màscara en decimal per a una subxarxa /26?|255.255.255.192|255.255.255.26|255.255.255.123
+T4|Quina serà la màscara resultant si afegeixes 3 bits a una /24?|/27|/26|/28
+T4|En una adreça IP /30, quantes adreces útils per a hosts hi ha?|2|4|6
+T4|En una subxarxa /28, quantes adreces útils hi ha?|14|12|16
+T4|Quants bits per a host té una xarxa /26?|6|8|2
+T4|Quina és la màscara d'una xarxa /24?|255.255.255.0|255.0.0.0|255.255.0.0
+T4|Quin tipus de NAT s’anomena també NAT 2?|NAT amb restricció d’adreça|NAT simètric|NAT sense restricció
+T4|Per què és necessari un servidor intermediari en l’exemple de la càmera de vigilància?|Per saber la IP pública i port NAT on està la càmera|Per augmentar la velocitat de transmissió|Per protegir la càmera amb contrasenya
+T4|L'adreça MAC destí per una consulta ARP és...|broadcast|multicast|unicast
+T4|Quin tipus de NAT s’anomena també NAT 3?|NAT amb restricció d’adreça i port|NAT sense restricció|NAT amb restricció d’adreça
+T4|Què és CG-NAT?|NAT implementat per l’operadora|NAT només per IPv6|NAT amb IP fixa
+T4|Quin tipus de NAT només permet connexions des de la mateixa IP i port?|NAT amb restricció d’adreça i port|NAT sense restricció|NAT amb restricció d’adreça
+T4|Com es resol la connexió amb una càmera IP amb NAT simètric?|Usant un relay server|Obrint ports al mòbil|Usant STUN sol
+T4|Que significa CG-NAT?|Carrier Grade NAT|Carrier Gateway NAT|Common Gateway NAT
+T4|Què indica que els ports vists al pas 1 i al pas 3 de STUN són diferents?|Que el NAT és simètric|Que és NAT sense restricció|Que no hi ha NAT
+T4|En un escenari amb CG-NAT, quina és la IP pública real?|La del router de l’operadora|La del router de casa|La de qualsevol dispositiu de la LAN
 T5|Què significa que el segon nibble per l'esquerra d'una MAC valgui E?|Que és una MAC privada.|Que és una MAC de TP-Link.|Que és una MAC pública.
 T5|Una connexió a la Wi-Fi, com es considera?|De medi compartit|Punt a punt|Lent.
 T5|En quin cas un node té accés al medi fins i tot si no transmet dades?|Amb FDM|Amb TDM|Amb WDM.
@@ -128,3 +148,20 @@ T5|Què és l'adreça MAC?|L'adreça que identifica una NIC.|L'adreça MAC és l
 T5|Quina d'aquestes tècniques de multiplexació es basa en la longitud d'ona?|WDM|FDM|TDM.
 T5|Què identifiquen els primers 3 parells de nibbles en una adreça MAC?|Identifiquen el fabricant de la NIC.|Suman 32|Identifica la NIC.
 T5|En quin tipus de multiplexació es fa servir la fibra òptica?|WDM|TDM|FDM.
+T5|En un sistema stop and wait, un node envia una trama...|Aleshores activa un temporitzador (timeout) i si aquest expira i no ha rebut l'ACK torna a enviar la trama.|Aleshores activa un temporitzador (timeout) i si aquest expira i no ha rebut l'ACK avisa la capa d'aplicació.|Aleshores activa un temporitzador (timeout) i si aquest expira i ha rebut l'ACK torna a enviar la trama.
+T5|Com sol acabar una trama?|Amb el CRC.|Amb l'adreça MAC origen.|Amb un postàmbul.
+T5|Normalment com es pot identificar el fabricant d'una NIC per software?|amb els 3 bytes de la part alta de la MAC.|usant el servei DNS.|per la etiqueta que porta enganxada.
+T5|Amb quin objectiu se solen usar les MAC privades?|Evitar el seguiment del dispositiu.|Identificar el fabricant.|Identificar l'usuari en una xarxa privada.
+T5|Què significa que el segon nibble per l'esquerra d'una MAC valgui A?|Que és una MAC privada.|Que és una MAC de TP-Link.|Que és una MAC pública.
+T5|Quina d'aquestes tècniques de multiplexació es basa en la freqüència?|FDM.|WDM.|TDM.
+T5|Un enllaç de fibra òptica, com es considera?|Punt a punt|Lent|Multipunt
+T6|Quin d'aquests estàndards Wi-Fi deu ser el més antic?|802.11b|802.11n|802.11ac
+T6|Quin d'aquests estàndards es correspon amb Fast Ethernet?|100BASE-TX|1000BASE-LX|10BASE5
+T6|Quin és l'element central d'una Wi-Fi en mode infraestructura?|El punt d'accés (access point)|L'encaminador (rúter)|El commutador (switch)
+T6|Quina és la MTU d'Ethernet?|1500 bytes|1500 bits|1500 KB
+T6|Si una estació Wi-Fi vol transmetre, què fa?|Envia un RTS|Espera un RTS|Envia un CTS
+T6|Les Ethernets actuals a alta velocitat no tenen col·lisions perquè…|usen un medi no compartit|usen el mètode Exponential-Backoff|usen un medi broadcast
+T6|Un node SDN compatible amb OpenFlow...|Té una taula de configuració amb regles de match i les accions corresponents|Té una taula ARP amb regles de match|Té una taula de configuració amb OSPF
+T6|Què és un sistema mallat de Wi-Fi (mesh)?|Un sistema que permet repartir petits satèl·lits per augmentar l'abast d'una LAN sense fils de forma fàcil|Un sistema que permet repartir la velocitat de la Wi-Fi|Un sistema que permet repartir punts d'accés cablejats per augmentar l'abast d'una LAN sense fils
+T6|Ethernet ofereix un servei fiable?|no, però sol donar pocs errors|sí|no, però sol donar molts errors
+T6|Un node SDN compatible amb OpenFlow...|Té una taula de configuració amb regles de match i les accions corresponents|Té una taula de configuració amb OSPF|Té una taula de configuració amb gateways i rutes
