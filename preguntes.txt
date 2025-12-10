@@ -38,6 +38,27 @@ T1|Quin model de transmissió està pensat per transmetre poques dades ràpidame
 T1|En quin model de comunicació no es controla el flux d'enviament de paquets?|En el model no orientat a la connexió.|En el model de commutació de circuits.|En el model orientat a la connexió.
 T1|Com s'anomena l'establiment de connexió habitualment?|Handshake.|Full-duplex.|Time to live.
 T1|Com s'anomena la comunicació en ambdues direccions, però només una a la vegada?|Half-duplex.|Orientada a la connexió.|Full-duplex.
+T1|Quina velocitat és menys elevada?|1 kbps.|1 MBps.|1 Mbps.
+T1|Els circuits virtuals es relacionen amb...|... les xarxes de commutació de paquets.|... les xarxes sense fils.|... les xarxes de commutació de circuits.
+T1|Com s'anomena la comunicació entre un emissor de radio analògica i els receptors?|Simplex|Half-duplex.|Semi-duplex.
+T1|De què està formada una xarxa?|Està formada per nodes i enllaços que els connecten.|Està formada exclusivament per un rúter.|Està formada exclusivament per un commutador.
+T1|En quin model s'envien els paquets a la vegada?|Commutació de paquets.|Orientat a la connexió.|Commutació de circuits.
+T1|Quina de les afirmacions és correcta?|En la commutació de paquets, l'amplada de banda és compartida.|En la commutació de circuits, l'amplada de banda és compartida.|En la commutació de circuits, no es reserva amplada de banda.
+T1|Què vol dir que una comunicació és half-duplex?|Es pot transmetre en ambdues direccions, però no a la vegada.|Només es pot transmetre en una direcció.|Es pot transmetre en ambdues direccions a la vegada.
+T1|La Plain Old Telephone System és...|... obsoleta i basada en la commutació de circuits.|... obsoleta i basada en la commutació de paquets.|... de rabiosa actualitat i basada en la commutació de paquets.
+T1|Quina d'aquestes xarxes té relació amb el Bluetooth, un mòbil i uns auriculars?|PAN|MAN|LAN.
+T1|La descàrrega de fitxers amb un torrent, quin model segueix?|Peer to peer|Client servidor|Publicador subscriptor.
+T1|Quin sistema és habitual per codificar informació en taules?|CSV|XML|JSON.
+T1|Quina capa tracta l'enviament d'un paquet a un programa específic?|Transport|Xarxa|Enllaç.
+T1|Un commutador s'usa per connectar ordinadors en una mateixa xarxa.|Un commutador s'usa per connectar ordinadors en una mateixa xarxa.|Un commutador s'usa per connectar ordinadors de diferents xarxes.|Un commutador s'usa per connectar l'ordinador a Internet.
+T1|Quina de les afirmacions és incorrecta?|El commutador és un element que opera a la capa de Xarxa.|El rúter és un element que opera a la capa de Xarxa.|El commutador és un element que opera a la capa d'Enllaç.
+T1|Quin tipus de dispositiu és un rúter?|Gateway|Punt d'accés sense fils|DNS.
+T1|Què és el punt d'accés?|És l'element central de les xarxes sense fils.|Funciona amb commutació de circuits.|És l'element central de la VoIP.
+T1|Si volem connectar la xarxa de casa amb Internet, què necessitem?|Un rúter|Un commutador|Un punt d'accés.
+T1|El temps de processat...|...serà més gran com més complexe sigui l'algorisme de decisió de sortida.|...serà més gran en un sistema sense prioritats.|...serà més petit en un sistema amb prioritats.
+T1|El RTT...|... com el temps que triga un paquet en anar i tornar.|... com el temps que triga un paquet a arribar al seu destí.|... com la quantitat de dades efectiva que transmet.
+T1|Què passa si es desconnecta un cable mentre es transmet un paquet?|Es perd el paquet.|Rebrem el paquet amb menys retard.|El paquet arriba abans.
+T1|Quin dispositiu interconnecta la LAN de casa amb Internet?|Rúter|Punt d'accés sense fils|Servidor DNS.
 T2|Com respon un servidor SMTP a la connexió del client?|Pleased to meet you.|Life long and pro prosper.|Well done.
 T2|Quin dels protocol de correu electrònic permet a un servidor rebre el correu?|SMTP.|POP3.|IMAP.
 T2|Quin d'aquests nombres no és un codi HTTP?|3456.|500.|410.
@@ -48,12 +69,30 @@ T2|Què permet fer POP3?|Només, autenticació d'usuari, obtenir i eliminar corr
 T2|Quin d'aquests és un intrús dels mètodes HTTP?|JUMP.|HEAD.|GET.
 T2|Què significa POP3?|Post Office Protocol.|Postman Office Protocols.|Point of Protocols.
 T2|Què és necessari per a què funcioni HTTPS?|Un certificat de servidor.|Un clauer electrònic.|Una contrasenya.
+T2|Quina d'aquestes comandes SMTP permet enviar les dades d'un correu?|DATA|MAIL|COMPOSE.
+T2|A quin servidor es pot demanar resoldre el domini tarragona.cat?|Servidor de noms TLD.|Servidor de noms arrel.|Servidor de noms autoritatiu.
+T2|El port on escolta el servidor HTTP és....|80.|43.|21.
+T2|Quina d'aquestes afirmacions sobre DNS és correcta?|Una petició iterativa fa que cada servidor consultat torni l'adreça del pròxim servidor que s'ha de consultar.|Una petició recursiva fa que cada servidor consultat torni l'adreça del pròxim servidor que s'ha de consultar.|Una petició iterativa fa que cada servidor consultat consulti el pròxim servidor.
+T2|Quina de les afirmacions sobre el DNS és incorrecta?|El servidor de noms autoritatiu és l'encarregat de resoldre qualsevol consulta que se li demani.|El servidor de noms TLD resol els dominis.|Un servidor DNS pot ser de noms TLD o autoritatiu.
+T2|En quin cas s'usa un fitxer de text pla per resoldre un nom de domini?|En l'arxiu hosts.|Sempre.|En la base de dades del servidor DNS.
+T2|Amb quin codi de resposta HTTP rebutja fer un cafè?|418 I'm a teapot (és un acudit publicat en un RFC).|304 Not Modified.|200 OK.
+T2|Què fa HTTP/2 per ser més eficient?|Fa una compressió de capçaleres i anuncia contingut (promise).|Fa els paquets més petits.|Té capçaleres més llargues, però amb menys bits.
+T2|Un user-agent d'HTTP és...|El Safari|Apache|Nginx.
 T3|Quines característiques té el protocol TCP a la capa de transport?|Estableix una connexió, parteix en contingut en segments i té cura que aquests arribin a desti.|Estableix una connexió i envia un fluxe de datagrames amb UDP en la capa de transport.|Senzillament proporciona la possibilitat d'afegir port origen, destí i poca cosa més, a un datagrama.
 T3|El rang de ports 1024-49151 és el...|Rang registered ports.|Rang well-known ports.|Rang dynamic ports.
 T3|Què és el Slow Start?|El mecanisme per evitar congestions a la xarxa amb TCP.|El mecanisme per fer segments més grans que la MTU.|El mecanisme per establir una connexió TCP.
 T3|Què permet fer el fet de tenir a la capçalera TCP dades d'ambdós sentits de la comunicació?|Fer piggybacking.|Fer exponential backoff.|Fer el moneypenny.
 T3|Quin port sol utilitzar el protocol SMTP segur?|465.|110.|995.
 T3|Quina de les afirmacions següents no és certa?|Per fer el checksum, a banda de les dades, es consideren els ports origen i desti.|Per fer el checksum, a banda de les dades, es considera la longitud del paquet UDP.|Per fer el checksum, a banda de les dades, es consideren les adreces IP origen i destí.
+T3|Què significa un segment amb el flag ACK=1 i el valor 3000 al camp acknowledgement number?|He rebut correctament fins el byte 2999 i espero rebre el 3000.|He rebut correctament fins el byte 3001 i espero rebre el 3000.|He rebut correctament fins el byte 3000 i espero rebre el 3001.
+T3|Quines dades es troben a la capçalera UDP?|Ports origen i destí.|Adreces IP.|Adreces MAC.
+T3|Quin protocol fa servir QUIC per sota?|UDP.|HTTP.|TCP.
+T3|Quina de les afirmacions és correcta?|El camp sequence number es fa servir per a un control de flux de les dades.|El camp sequence number indica el número de seqüència del darrer segment rebut.|El camp sequence number indica el número de seqüència del pròxim segment a rebre.
+T3|Quina és la mida d'una capçalera TCP sense opcions?|Com a mínim 20 bytes.|Com a màxim 20 bytes.|Com a màxim 20 bits.
+T3|Què significa un segment amb el flag ACK=1 i el valor 2000 al camp acknowledgement number?|He rebut correctament fins el byte 1999 i espero rebre el 2000.|He rebut correctament fins el byte 2000 i espero rebre el 2001.|He rebut correctament fins el byte 2001 i espero rebre el 2000.
+T3|Un segment amb els flags SYN=1 i ACK=1 es produeix...|A la segona de les tres vies (three way handshake).|A la tercera de les tres vies (three way handshake).|A la primera de les tres vies (three way handshake).
+T3|En teoria, la mida màxima de finestra sense opcions al TCP és...|65535 bytes.|1500 bytes.|65535 KB.
+T3|Quina de les afirmacions següents és certa?|Per fer el checksum, a banda de les dades, es consideren les adreces IP origen i destí.|Per fer el checksum, a banda de les dades, es consideren les adreces MAC origen i destí.|Per fer el checksum, a banda de les dades, es consideren els ports origen i destí.
 T4|Quina d'aquestes regles port forwarding sembla bona?|if destination port = 8080 then destination ip = 192.168.1.2.|if source port = 80 then destination ip = 192.168.1.20.|if destination port = 80 then destination ip = 93.118.1.20.
 T4|Quants bits té el camp Version de la capçalera IPv4?|4.|32.|8.
 T4|En quin cas no es perd un datagrama?|Quan n'arriben tots els seus fragments.|Quan arriba a un rúter amb la memòria plena.|Quan hi ha un error de transmissió a nivell d'enllaç i no s'usa ARQ.
@@ -63,3 +102,29 @@ T4|Què significa l'acrònim ARP?|Address Resolution Protocol.|Advanced Resoluti
 T4|Quin d'aquests camps de la capçalera IPv4 no es fa servir en la fragmentació?|TTL|Offset.|MF.
 T4|Quina d'aquestes adreces IP podria ser la interna d'un rúter domèstic?|192.168.200.1.|1.2.3.4.|195.23.17.9.
 T4|Quina d'aquestes adreces IP no forma part de la xarxa 192.168.1.0/24?|192.168.7.3.|192.168.1.99.|192.168.1.100.
+T4|Quin missatge representaria una resposta ARP?|192.168.0.8 is at 1a:3f:25:78:3b:c1.|192.168.0.8 is at 192.168.0.12.|192.368.1.8 is at 1a:3f:25:78:3b:c1.
+T4|Quina és la mida d'una capçalera IPv4?|Com a mínim 20 bytes.|Com a màxim 20 bits.|Com a màxim 20 bytes.
+T4|Quants fragments pot haver-hi d'un sol datagrama?|Pot haver-hi fragments il·limitats.|Com a màxim 20.|Com a màxim 65535.
+T4|Quina d'aquestes afirmacions és correcta?|Quan s'arriba a destí, el datagrama es reensambla.|En el reensamblatge, els fragments poden arribar sense un ordre lògic.|Si no s'arriba a reensamblar, es retransmet el datagrama original.
+T4|Quants fragments pot tenir un datagrama IP?|Com a màxim 65535.|Com a màxim 20.|Són fragments il·limitats.
+T4|Quina de les afirmacions és correcta sobre IPv6?|La capçalera fa servir un camp anomenat hop limit, equivalent al TTL d'IPv4.|La capçalera fa servir un camp anomenat time to live.|Fa servir el mateix camp que IPv4.
+T4|Què vol dir que hi ha un símbol de l'escut al costat del domini a la barra del navegador?|El lloc web utilitza HTTPS.|El lloc web utilitza HTTP i l'empresa propietària està lliure d'impostos.|El lloc web utilitza HTTP.
+T4|Quina de les afirmacions és correcta?|Quan un rúter rep un datagrama, en decrementa el TTL.|Quan un rúter rep un datagrama, n'incrementa el TTL.|Quan un rúter rep un datagrama, inicialitza el TTL.
+T4|Quin és l'efecte de tenir un IPX a Internet?|Escurçar el temps de comunicació entre dos ISPs.|Allargar el temps de comunicació entre dos ISPs.|Donar fiabilitat a Internet.
+T4|Quan un rúter fa NAT...|...Només podran entrar datagrames corresponents a peticions originades des de la LAN.|...Només podran entrar datagrames corresponents a peticions originades amb un navegador.|...Només podran entrar datagrames de qualsevol tipus.
+T4|Quina és la MTU d'IPv4?|64 KB.|1500 bytes.|32 KB.
+T4|El checksum que trobem a IPv4...|Fa referència només a la capçalera.|Fa regerència només a les dades.|Fa referència a tot el datagrama.
+T4|El protocol ARP...|...fa servir la taula ARP.|...fa servir fitxers per la traducció.|...fa servir DNS.
+T4|La IP 192.168.1.1, de quin tipus és?|IP privada.|IP pública.|IP d'autoconfiguració.
+T4|El camp identification...|...es fa servir per reensamblar els fragments.|...fa referència al número de seqüència del datagrama.|...es fa servir per identificar el port origen.
+T4|Què és el CIDR?|Un esquema que facilita assignar IPs a ASs.|Defineix 4 classes d'adreces IP.|Una marca de sidra.
+T4|Quants bits de xarxa i màquina hi ha a l'adreça 172.31.0.0/16?|Hi ha 16 bits per identificar la xarxa i 16 la màquina.|Hi ha 16 bits per identificar la xarxa i 8 la màquina.|Hi ha 32 bits per identificar la xarxa i 32 la màquina.
+T5|Què significa que el segon nibble per l'esquerra d'una MAC valgui E?|Que és una MAC privada.|Que és una MAC de TP-Link.|Que és una MAC pública.
+T5|Una connexió a la Wi-Fi, com es considera?|De medi compartit|Punt a punt|Lent.
+T5|En quin cas un node té accés al medi fins i tot si no transmet dades?|Amb FDM|Amb TDM|Amb WDM.
+T5|En les xarxes cablejades, quin protocol de control d'accés al medi s'utilitza?|CSMA/CD|CSMA/CA|Token Ring.
+T5|Què fa un commutador amb la adreça MAC de destí?|Mira si la té a la taula de re-adreçament.|Mira l'adreça IP de destí.|Mira si la té a la taula ARP.
+T5|Què és l'adreça MAC?|L'adreça que identifica una NIC.|L'adreça MAC és la d'un fabricant com Apple.|L'adreça del rúter.
+T5|Quina d'aquestes tècniques de multiplexació es basa en la longitud d'ona?|WDM|FDM|TDM.
+T5|Què identifiquen els primers 3 parells de nibbles en una adreça MAC?|Identifiquen el fabricant de la NIC.|Suman 32|Identifica la NIC.
+T5|En quin tipus de multiplexació es fa servir la fibra òptica?|WDM|TDM|FDM.
