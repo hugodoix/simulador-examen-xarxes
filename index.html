@@ -3,459 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador d'Examen de Xarxes (Hugo)</title>
+    <title>Simulador d'Examen de Xarxes</title>
     
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
     <style>
-        /* === 1. RESET BÀSIC I VARIABLES === */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* === 1. VARIABLES I ESTILS PROFESSIONALS === */
         :root {
-            --color-primary: #007bff; /* Blau net i professional */
-            --color-secondary: #f4f4f9; /* Fons molt clar */
-            --color-text: #333;
-            --color-light-gray: #eee;
-            --duration: 0.3s;
+            --color-primary: #007bff;
+            --color-secondary: #f8f9fa;
+            --color-success: #28a745;
+            --color-danger: #dc3545;
+            --color-text: #2d3436;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
 
-        /* === 2. ESTIL GENERAL I TIPOGRAFIA === */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--color-secondary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #e9ecef;
             color: var(--color-text);
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinea a dalt en pantalla gran */
             min-height: 100vh;
         }
 
         .container {
             width: 100%;
-            max-width: 700px; /* Límita l'amplada per a millor lectura */
+            max-width: 800px;
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: box-shadow var(--duration) ease-in-out;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
         }
-        
-        /* === 3. CAPÇALERA === */
+
         h1 {
             color: var(--color-primary);
             text-align: center;
-            margin-bottom: 30px;
-            font-weight: 300; /* Minimalista */
+            margin-bottom: 5px; /* Reduït per apropar el subtítol */
+            font-weight: 700;
+            letter-spacing: -1px;
         }
-        
-        /* === 4. CONTROLS (INICI) === */
-        .controls {
+
+        /* ESTIL DEL NOU SUBTÍTOL */
+        .subtitol {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 35px;
+            font-size: 1rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* === 2. CONTROLS DE TEMA === */
+        #zonaConfiguracio {
             display: flex;
             flex-direction: column;
-            align-items: stretch;
             gap: 15px;
-        }
-        
-        #selectorTema {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-            transition: border-color var(--duration);
+            animation: fadeIn 0.5s ease;
         }
 
-        #selectorTema:focus {
-            border-color: var(--color-primary);
-            outline: none;
+        select, button {
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
         }
 
-        /* === 5. BOTONS (FLUIDESA I ANIMACIÓ) === */
         button {
-            padding: 12px 20px;
             background-color: var(--color-primary);
             color: white;
             border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color var(--duration), transform var(--duration);
             font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
         button:hover:not(:disabled) {
-            background-color: #0056b3;
-            transform: translateY(-2px); /* Lleugera animació al passar el ratolí */
-            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
-        }
-        
-        button:disabled {
-            background-color: #aaa;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+            filter: brightness(0.9);
+            transform: translateY(-1px);
         }
 
-        /* === 6. ÀREA DE PREGUNTES I OPCIONS === */
+        .btn-secondary {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+        /* === 3. ÀREA D'EXAMEN === */
         #examenArea {
-            padding: 20px 0;
-            border-top: 1px solid var(--color-light-gray);
-            margin-top: 20px;
+            animation: slideIn 0.4s ease;
+        }
+
+        .question-header {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
         .question-text {
-            font-weight: 500;
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 25px;
-            font-size: 1.2em;
-            color: #222;
+            line-height: 1.4;
         }
 
-        /* Estil de les opcions (Minimalisme) */
+        .option {
+            margin-bottom: 12px;
+        }
+
         .option label {
-            display: flex;
-            align-items: center;
-            padding: 12px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            transition: background-color var(--duration), border-color var(--duration);
+            display: block;
+            padding: 15px;
+            border: 2px solid #edf2f7;
+            border-radius: 10px;
             cursor: pointer;
+            transition: var(--transition);
         }
-        
-        .option label:hover {
-            background-color: var(--color-secondary);
+
+        .option input { display: none; }
+
+        .option input:checked + label {
             border-color: var(--color-primary);
+            background-color: #ebf4ff;
         }
 
-        .option input[type="radio"] {
-            margin-right: 15px;
-            /* Estilitzar el radio button (opcional, però manté la fluïdesa) */
-            appearance: none;
-            width: 18px;
-            height: 18px;
-            border: 2px solid #aaa;
-            border-radius: 50%;
-            transition: border-color var(--duration);
-            position: relative;
-        }
-        
-        /* Estil quan l'opció està seleccionada */
-        .option input[type="radio"]:checked {
-            border-color: var(--color-primary);
-        }
-
-        .option input[type="radio"]:checked::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: var(--color-primary);
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* === 7. RESULTATS === */
-        .results {
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
             margin-top: 30px;
+        }
+
+        /* === 4. RESULTATS DETALLATS === */
+        .result-card {
+            border: 1px solid #eee;
+            border-radius: 12px;
             padding: 20px;
-            background-color: var(--color-secondary);
-            border-radius: 8px;
+            margin-bottom: 20px;
+            background: #fff;
         }
 
-        .results h2 {
-            margin-bottom: 15px;
-            color: #555;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-        }
-
-        #resultsContent {
-            white-space: pre-wrap; /* Manté el format del text generat */
-            font-size: 0.95em;
-        }
-
-        .hidden {
-            display: none;
-        }
+        .res-tema { font-size: 0.8rem; font-weight: bold; color: var(--color-primary); }
+        .res-pregunta { font-weight: 600; margin: 10px 0; }
         
-        /* === 8. MEDIA QUERIES (ADAPTACIÓ MÒBIL) === */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-            
-            /* Apilar controls per a millor ús amb el dit */
-            .controls {
-                flex-direction: column;
-            }
-            
-            button, #selectorTema {
-                font-size: 1.1em;
-            }
+        .res-opcio {
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            border: 1px solid #eee;
         }
+
+        .correcta { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; font-weight: bold; }
+        .incorrecta { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
+
+        .puntuacio-final {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--color-secondary);
+            border-radius: 12px;
+        }
+
+        .hidden { display: none; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Simulador d'Examen de Xarxes</h1>
+    <h1>Simulador Hugo</h1>
+    <p class="subtitol">per Hugo Martín Subirós</p>
 
-    <div class="controls">
-        <label for="selectorTema">Selecciona el Tema:</label>
+    <div id="zonaConfiguracio">
+        <label for="selectorTema">Tria un tema per començar:</label>
         <select id="selectorTema">
-            </select>
-        <button id="btnIniciar">Iniciar Examen</button>
+            <option disabled selected>Carregant preguntes...</option>
+        </select>
+        <button id="btnIniciar" disabled>Començar Examen</button>
     </div>
 
     <div id="examenArea" class="hidden">
+        <div class="question-header" id="infoPregunta"></div>
         <p class="question-text" id="questionText"></p>
         <form id="optionsForm"></form>
-        <button id="btnSeguent">Següent Pregunta</button>
+        
+        <div class="nav-buttons">
+            <button id="btnEnrere" class="btn-secondary">⬅ Enrere</button>
+            <button id="btnSeguent">Següent ➡</button>
+        </div>
     </div>
 
-    <div class="results hidden" id="resultsArea">
-        <h2>Resultats</h2>
-        <pre id="resultsContent"></pre>
+    <div id="resultsArea" class="hidden">
+        <div class="puntuacio-final" id="notaText"></div>
+        <div id="detallResultats"></div>
+        <button onclick="location.reload()" style="width:100%; margin-top:20px">Tornar a començar</button>
     </div>
 </div>
 
 <script>
-// El codi JavaScript de la versió anterior (Càrrega, Lògica i Funcions) es manté aquí.
-// Per optimitzar i mantenir el codi net, et recomano que copiïs AQUÍ el codi JavaScript COMPLET que et vaig donar anteriorment.
-
-const MAX_PREGUNTES_PER_TEMA = 10;
-const MAX_PREGUNTES_BARREJAT = 20;
-const NOM_FITXER_PREGUNTES = 'preguntes.txt';
-
 let bancDePreguntes = {};
 let preguntesExamen = [];
-let preguntesIncorrectes = [];
-let indexPreguntaActual = 0;
+let respostesUsuari = []; 
+let indexActual = 0;
 
-// Funció de Barrejat (substitut de Collections.shuffle)
-function barrejarArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
-// 1. Càrrega de Dades
-async function carregarPreguntes() {
+async function carregarDades() {
     try {
-        const response = await fetch(NOM_FITXER_PREGUNTES);
-        if (!response.ok) throw new Error('No s\'ha trobat el fitxer de preguntes.');
-        
-        const text = await response.text();
-        const linies = text.split('\n');
-        
-        linies.forEach(linia => {
+        const res = await fetch('preguntes.txt');
+        const text = await res.text();
+        text.split('\n').forEach(linia => {
             const parts = linia.trim().split('|').map(p => p.trim());
-            if (parts.length >= 4) {
-                const tema = parts[0];
-                const text = parts[1];
-                const respostaCorrecta = parts[2];
-                const opcionsIncorrectes = parts.slice(3);
-
-                const opcions = [respostaCorrecta, ...opcionsIncorrectes];
-                
-                if (!bancDePreguntes[tema]) {
-                    bancDePreguntes[tema] = [];
-                }
-                bancDePreguntes[tema].push({ tema, text, respostaCorrecta, opcions });
+            if (parts.length >= 3) {
+                const [tema, pregunt, correcta, ...incorrectes] = parts;
+                if (!bancDePreguntes[tema]) bancDePreguntes[tema] = [];
+                bancDePreguntes[tema].push({ 
+                    tema, 
+                    pregunt, 
+                    correcta, 
+                    incorrectes, 
+                    totes: [correcta, ...incorrectes].sort(() => Math.random() - 0.5) 
+                });
             }
         });
 
-        // Omplir el selector de temes
         const selector = document.getElementById('selectorTema');
-        selector.innerHTML = '';
-        
-        // Afegeix la opció per defecte abans de carregar els temes
-        const opcioDefecte = document.createElement('option');
-        opcioDefecte.value = '';
-        opcioDefecte.textContent = '— Tria un tema —';
-        opcioDefecte.disabled = true;
-        opcioDefecte.selected = true;
-        selector.appendChild(opcioDefecte);
-
-        Object.keys(bancDePreguntes).sort().forEach(tema => {
-            const option = document.createElement('option');
-            option.value = tema;
-            option.textContent = tema;
-            selector.appendChild(option);
+        selector.innerHTML = '<option value="" disabled selected>Selecciona tema...</option>';
+        Object.keys(bancDePreguntes).sort().forEach(t => {
+            selector.innerHTML += `<option value="${t}">${t}</option>`;
         });
-        const optionBarrejat = document.createElement('option');
-        optionBarrejat.value = 'BARREJAT';
-        optionBarrejat.textContent = 'BARREJAT (20 Preguntes)';
-        selector.appendChild(optionBarrejat);
-        
-        // Habilita el botó d'inici un cop carregat
+        selector.innerHTML += `<option value="MIX">TOT BARREJAT</option>`;
         document.getElementById('btnIniciar').disabled = false;
-
-
-    } catch (error) {
-        console.error("Error carregant les preguntes:", error);
-        alert("Error carregant les preguntes. Assegura't que 'preguntes.txt' existeix.");
-        document.getElementById('btnIniciar').disabled = true;
-    }
+    } catch (e) { alert("Error carregant preguntes.txt"); }
 }
 
-// 2. Generació de l'Examen
-function obtenirPreguntesExamen(temaEscollit) {
-    let pool = [];
-    if (temaEscollit === 'BARREJAT') {
-        Object.values(bancDePreguntes).forEach(llista => {
-            pool.push(...llista);
-        });
-        barrejarArray(pool);
-        return pool.slice(0, MAX_PREGUNTES_BARREJAT);
-    } else {
-        pool = [...bancDePreguntes[temaEscollit]]; 
-        barrejarArray(pool);
-        return pool.slice(0, MAX_PREGUNTES_PER_TEMA);
-    }
-}
-
-// 3. Lògica de l'Examen
 function iniciarExamen() {
-    const temaEscollit = document.getElementById('selectorTema').value;
-    
-    if (temaEscollit === '') {
-        alert("Si us plau, selecciona un tema abans de començar.");
-        return;
+    const tema = document.getElementById('selectorTema').value;
+    if (!tema) return;
+
+    if (tema === "MIX") {
+        preguntesExamen = Object.values(bancDePreguntes).flat().sort(() => Math.random() - 0.5).slice(0, 20);
+    } else {
+        preguntesExamen = bancDePreguntes[tema].sort(() => Math.random() - 0.5).slice(0, 10);
     }
 
-    preguntesExamen = obtenirPreguntesExamen(temaEscollit);
-    
-    if (preguntesExamen.length === 0) {
-        alert("No s'han pogut generar preguntes. Tria un altre tema.");
-        return;
-    }
-
-    // Inicialització
-    indexPreguntaActual = 0;
-    preguntesIncorrectes = [];
+    respostesUsuari = new Array(preguntesExamen.length).fill(null);
+    document.getElementById('zonaConfiguracio').classList.add('hidden');
     document.getElementById('examenArea').classList.remove('hidden');
-    document.getElementById('resultsArea').classList.add('hidden');
-    document.getElementById('btnIniciar').disabled = true;
-    
     mostrarPregunta();
 }
 
 function mostrarPregunta() {
-    if (indexPreguntaActual >= preguntesExamen.length) {
-        mostrarResultatsFinals();
-        return;
-    }
+    const p = preguntesExamen[indexActual];
+    document.getElementById('infoPregunta').textContent = `Pregunta ${indexActual + 1} de ${preguntesExamen.length} • Tema ${p.tema}`;
+    document.getElementById('questionText').textContent = p.pregunt;
     
-    const p = preguntesExamen[indexPreguntaActual];
     const form = document.getElementById('optionsForm');
     form.innerHTML = '';
     
-    // Mostra el text de la pregunta
-    document.getElementById('questionText').textContent = `PREGUNTA ${indexPreguntaActual + 1}/${preguntesExamen.length} (TEMA ${p.tema}): ${p.text}`;
-
-    // Barreja les opcions (recreant el getOpcionsBarrejades)
-    const opcionsBarrejades = [...p.opcions];
-    barrejarArray(opcionsBarrejades); 
-
-    // Crea els botons de ràdio
-    opcionsBarrejades.forEach((opcio, index) => {
-        const div = document.createElement('div');
-        div.classList.add('option');
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.name = 'resposta';
-        input.value = opcio;
-        input.id = `opcio${index}`;
-        
-        const label = document.createElement('label');
-        label.setAttribute('for', `opcio${index}`);
-        label.textContent = opcio;
-        
-        div.appendChild(input);
-        div.appendChild(label);
-        form.appendChild(div);
+    p.totes.forEach((opcio, i) => {
+        const isChecked = respostesUsuari[indexActual] === opcio ? 'checked' : '';
+        form.innerHTML += `
+            <div class="option">
+                <input type="radio" name="resp" id="opt${i}" value="${opcio}" ${isChecked}>
+                <label for="opt${i}">${opcio}</label>
+            </div>`;
     });
-    
-    // Si és l'última pregunta, canvia el text del botó
-    if (indexPreguntaActual === preguntesExamen.length - 1) {
-        document.getElementById('btnSeguent').textContent = "Finalitzar Examen";
-    } else {
-        document.getElementById('btnSeguent').textContent = "Següent Pregunta";
-    }
-    
-    // Avança l'índex per a la propera iteració
-    indexPreguntaActual++;
+
+    document.getElementById('btnEnrere').style.visibility = indexActual === 0 ? 'hidden' : 'visible';
+    document.getElementById('btnSeguent').textContent = indexActual === preguntesExamen.length - 1 ? 'Finalitzar' : 'Següent ➡';
 }
 
-function processarResposta() {
-    // L'índex ja s'ha incrementat en mostrarPregunta, així que mirem la pregunta anterior
-    const p = preguntesExamen[indexPreguntaActual - 1]; 
-    const respostaSeleccionada = document.querySelector('input[name="resposta"]:checked');
-    
-    if (respostaSeleccionada) {
-        const respostaUsuari = respostaSeleccionada.value;
-        if (respostaUsuari !== p.respostaCorrecta) {
-            preguntesIncorrectes.push(p);
-        }
-    } else {
-        // No seleccionar res es considera incorrecte
-        preguntesIncorrectes.push(p);
-    }
+function seguent() {
+    const seleccionada = document.querySelector('input[name="resp"]:checked');
+    respostesUsuari[indexActual] = seleccionada ? seleccionada.value : null;
 
-    mostrarPregunta();
+    if (indexActual < preguntesExamen.length - 1) {
+        indexActual++;
+        mostrarPregunta();
+    } else {
+        finalitzar();
+    }
 }
 
-// 4. Resultats Finals
-function mostrarResultatsFinals() {
+function enrere() {
+    const seleccionada = document.querySelector('input[name="resp"]:checked');
+    if(seleccionada) respostesUsuari[indexActual] = seleccionada.value;
+    
+    if (indexActual > 0) {
+        indexActual--;
+        mostrarPregunta();
+    }
+}
+
+function finalitzar() {
     document.getElementById('examenArea').classList.add('hidden');
-    document.getElementById('resultsArea').classList.remove('hidden');
-    document.getElementById('btnIniciar').disabled = false;
+    const areaRes = document.getElementById('resultsArea');
+    areaRes.classList.remove('hidden');
+    
+    let correctes = 0;
+    let htmlResultats = '';
 
-    const totals = preguntesExamen.length;
-    const incorrectes = preguntesIncorrectes.length;
-    const correctes = totals - incorrectes;
-    const puntuacio = (correctes / totals) * 10;
+    preguntesExamen.forEach((p, i) => {
+        const uResp = respostesUsuari[i];
+        const esCorrecta = uResp === p.correcta;
+        if (esCorrecta) correctes++;
 
-    let resultatText = "--- RESULTATS DE L'EXAMEN ---\n";
-    resultatText += `Puntuació final: ${puntuacio.toFixed(2)} sobre 10.00\n`;
-    resultatText += `Respostes Correctes: ${correctes}\n`;
-    resultatText += `Respostes Incorrectes: ${incorrectes}\n`;
+        htmlResultats += `
+            <div class="result-card">
+                <div class="res-tema">TEMA ${p.tema}</div>
+                <div class="res-pregunta">${p.pregunt}</div>
+                ${p.totes.map(o => {
+                    let classe = 'res-opcio';
+                    if (o === p.correcta) classe += ' correcta';
+                    if (o === uResp && o !== p.correcta) classe += ' incorrecta';
+                    return `<div class="${classe}">${o} ${o === p.correcta ? '✓' : ''}</div>`;
+                }).join('')}
+            </div>`;
+    });
 
-    if (incorrectes > 0) {
-        resultatText += "\nDETALL DE PREGUNTES INCORRECTES:\n";
-        preguntesIncorrectes.forEach(p => {
-            resultatText += `\n❌ TEMA ${p.tema}: ${p.text}\n`;
-            resultatText += `   (La correcta era: ${p.respostaCorrecta})\n`;
-        });
-    } else {
-        resultatText += "\n🎉 MOLT BE! HAS FET TOT L'EXAMEN CORRECTAMENT! 🎉";
-    }
-
-    document.getElementById('resultsContent').textContent = resultatText;
+    const nota = (correctes / preguntesExamen.length) * 10;
+    document.getElementById('notaText').innerHTML = `Nota: ${nota.toFixed(2)} / 10<br><span style="font-size:1rem; font-weight:normal">${correctes} encerts de ${preguntesExamen.length}</span>`;
+    document.getElementById('detallResultats').innerHTML = htmlResultats;
 }
 
-// Listeners
-document.getElementById('btnIniciar').addEventListener('click', iniciarExamen);
-document.getElementById('btnSeguent').addEventListener('click', processarResposta);
-
-// Inici
-carregarPreguntes();
+document.getElementById('btnIniciar').onclick = iniciarExamen;
+document.getElementById('btnSeguent').onclick = seguent;
+document.getElementById('btnEnrere').onclick = enrere;
+carregarDades();
 </script>
 
 </body>
