@@ -5,7 +5,7 @@ T1|Quina velocitat és més elevada?|1 MBps.|1 Mbps.|1 kbps.
 T1|El retard de propagació és...|... el temps que triga el senyal a ser transmès pel medi.|el temps que triga la informació a ser processada pel node (control d'errors, etc.).|el temps que triga el dispositiu de xarxa a transmetre els bits cap al medi de transmissió.
 T1|El troughput d'una xarxa es pot definir...|com la quantitat efectiva de bits que transmet un enllaç.|com el temps que triga un paquet en anar i tornar.|com la variació de retard que experimenta.
 T1|Quin és l'ample de banda que proporciona Gigabit Ethernet?|1000 Mbps.|10 Mbps.|10 Gbps.
-T1|Quina velocitat és més elevada?|9 Mbps.|1 kbps.|1 MBps.
+T1|Quina velocitat és més elevada?|1 MBps.|9 Mbps.|1 kbps.
 T1|Què limita la velocitat de connexió a Internet des de dins de casa?|L'enllaç que té menys ample de banda.|L'enllaç que té més ample de banda.|El programa que fa servir menys la xarxa.
 T1|Què passa si hi ha un error de transmissió no recuperable?|Es perd el paquet.|Rebrem el paquet amb menys retard.|El paquet arriba abans.
 T1|Si volem connectar quatre ordinadors amb cable a una LAN, què necessitem?|Un commutador.|Un rúter.|Un punt d'accés.
@@ -32,7 +32,7 @@ T1|Quina de les següent situacions és pròpia de la commutació de circuits?|Q
 T1|Quina d'aquestes xarxes té relació amb proporcionar serveis de xarxa entre parquings d'una ciutat?|MAN.|LAN.|PAN.
 T1|En quin model de comunicació es fa servir el TCP?|En el model orientat a la connexió.|En el model de commutació de circuits.|En el model no orientat a la connexió.
 T1|En una transmissió orientada a la connexió...|... hi ha una fase d'establiment de connexió i un control dels diferents paquets que es transmetran.|... hi ha una fase d'establiment de connexió al circuit commutat.|es connecta un circuit commutat.
-T1|Què és una SAN?|Amb una xarxa d'unitats d'emmagatzematge.|Amb una xarxa per distribuir el contingut de Netflix.|Amb una xarxa d'alimentació ininterrompuda.
+T1|Què és una SAN?|Una xarxa d'unitats d'emmagatzematge.|Una xarxa per distribuir el contingut de Netflix.|Una xarxa d'alimentació ininterrompuda.
 T1|Quina de les tecnologies no s'ajusta a la commutació de paquets?|La xarxa telefònica antiga (POTS).|La VoIP.|Internet.
 T1|Quin model de transmissió està pensat per transmetre poques dades ràpidament?|En el model no orientat a la connexió.|En el model de commutació de circuits.|En el model orientat a la connexió.
 T1|En quin model de comunicació no es controla el flux d'enviament de paquets?|En el model no orientat a la connexió.|En el model de commutació de circuits.|En el model orientat a la connexió.
@@ -78,6 +78,19 @@ T1|Què és la NIC?|El controlador d'interficie de xarxa.|Un dispositiu que rep 
 T1|On no sol allotjar-se un servidor?|En un mòbil.|En una granja de servidors.|En un hosting.
 T1|Quina adreça IP té el resolutor de noms de Google?|8.8.8.8.|192.168.1.1.|1.2.3.4.
 T1|Què fa un rúter?|Encamina paquets entre xarxes.|Encamina paquets a la Wi-Fi.|És un dispositiu que ja no es fa servir.
+T1|Relacionem una pàgina web d'una aplicació amb...|El front end.|El protocol UDP.|El servidor.
+T1|Relacionem el back-end d'una aplicació web amb...|El servidor.|El client.|Les apps.
+T1|Què és una VPN?|Una tecnologia d'interconnexió remota.|Una xarxa sense fils.|Una web molt popular.
+T1|Què és un socket?|Una eina de la capa de transport que permet la comunicació entre programes remots.|Un programa remot que permet la comunicació entre el transport.|Un connector a la capa d'enllaç.
+T1|Què és un SSID?|Un Service Set Identifier.|Una adreça MAC.|Un Wired Network Identifier.
+T1|Les notificacions push es relacionen amb...|El model publicador/subscriptor.|El model P2P.|El model client/servidor.
+T1|Un kbit/s són...|10^3 bits per segon.|1024 bits per segon.|8000 bits per segon.
+T1|Com serà en general el temps d'espera a la cua d'un node?|En general, variable.|En general, fixe.|Inexistent.
+T1|Quants bits són necessaris per codificar 4 simbols?|2.|3.|2^2.
+T1|Quan temps triga a transmetre's un fitxer d'1 Mbyte en un enllaç de 10 Mbps?|Menys d'un segon.|Més de 10 segons.|Menys d'un milisegon.
+T1|El POTS és...|... el sistema de telefonia analògica clàssic.|una forma d'emprar FDM en les troncals de telefonia.|el sistema digital de telefonia, com I'XDSI.
+T1|La PSTN es basa en la ...|...commutació de circuits.|commutació de paquets.|veu IP.
+T1|Quina de les següent situacions és pròpia de la commutació de paquets?|Escala bé, a base d'augmentar el retard.|Escala bé, mantenint el retard.|Quan s'estableix un cami, aquest no el pot usar cap altra comunicació.
 T2|Com respon un servidor SMTP a la connexió del client?|Pleased to meet you.|Life long and pro prosper.|Well done.
 T2|Quin dels protocol de correu electrònic permet a un servidor rebre el correu?|SMTP.|POP3.|IMAP.
 T2|Quin d'aquests nombres no és un codi HTTP?|3456.|500.|410.
@@ -106,6 +119,14 @@ T2|Quina de les afirmacions és correcta?|Gràcies als virtualhosts hi pot haver
 T2|Quin dels protocols de correu és més complex i të més funcionalitats?|IMAP.|POP3.|MP3.
 T2|Quin missatge forma part de SMTP?|HELO.|MAIL TO.|RCPT FROM.
 T2|Com s'anomena el servidor de noms que té les IP de tots els servidors de nom...|Servidor de noms arrel (root).|Servidor de noms autoritatiu.|Servidor de noms TLD.
+T2|Amb el header HTTP max-age|El client pot deduir quan caducarà l'element quan sigui a la caché.|Indica quants anys fa que el servidor està funcionant.|Indica si el contingut requereix d'una edat mínima per ser vist.
+T2|El port on escolta el servidor DNS és...|53.|80.|43.
+T2|Si un client web rep el 304 Not Modified, què significa?|Que pot aprofitar el contingut que té a la cache.|Que no havia rebut mai el contingut.|Que no pot modificar el fitxer.
+T2|La part cat de www.urv.cat és ....|el TLD.|el nom de domini.|el subdomini.
+T2|Què indica la capçalera Content-Type d'HTTP?|Si el contingut és un text, imatge....|Que està content i tip.|La mida en bytes del contingut.
+T2|Google penalitza webs no segures|Sí, i tant.|No, mai de la vida.|No, ha de promocionar les webs insegures.
+T2|Quina d'aquestes capçaleres té a veure amb la gestió de la caché?|Age.|Content-Type.|Downlink.
+T2|Què significa Bcc en el context del correu electrònic?|Blind Carbon Copy.|Binary Clear Copy.|Binary Carbon Copy.
 T3|Quines característiques té el protocol TCP a la capa de transport?|Estableix una connexió, parteix en contingut en segments i té cura que aquests arribin a desti.|Estableix una connexió i envia un fluxe de datagrames amb UDP en la capa de transport.|Senzillament proporciona la possibilitat d'afegir port origen, destí i poca cosa més, a un datagrama.
 T3|El rang de ports 1024-49151 és el...|Rang registered ports.|Rang well-known ports.|Rang dynamic ports.
 T3|Què és el Slow Start?|El mecanisme per evitar congestions a la xarxa amb TCP.|El mecanisme per fer segments més grans que la MTU.|El mecanisme per establir una connexió TCP.
@@ -130,13 +151,23 @@ T3|Què indica la mida de finestra que especifica la capçalera TCP?|Indica la m
 T3|Què és el three-way handshake?|El mecanisme per establir una connexió TCP.|El mecanisme per fer segments més grans que la MTU.|El mecanisme per evitar congestions a la xarxa amb TCP.
 T3|Quin port sol utilitzar el protocol HTTPS?|443.|80.|993.
 T3|El número de seqüència en TCP...|permet al receptor descartar duplicats i ordenar segments al buffer.|permet a l'emissor descartar duplicats.|permet al receptor descartar duplicats.
+T3|Què intenta evitar l'algorisme de Nagle?|L'enviament de tinygrams|La duplicació d'ACKs|La fragmentació IP
+T3|Quina funció fa el factor d'escalat?|Multiplica la mida de finestra anunciada|Incrementa el número de port|Redueix el nombre de retransmissions
+T3|Quants bits té el camp de mida de finestra TCP?|16|32|8
+T3|Els números a les opcions TCP de confirmació selectiva, indiquen...|Els números de seqüència inici i final dels segments ben rebuts.|Els números de seqüència que falten.|Els números de finestra,
+T3|Què permet estalviar el SACK?|Retransmissions innecessàries|L'ús del checksum|L'establiment de connexions
+T3|Quin és el mecanisme estàndard de confirmació de TCP sense SACK?|Acumulatiu|Circular|Selectiu
+T3|Què és un tinygram?|Un segment TCP amb molt poques dades|Una finestra de congestió petita|Un ACK sense dades
+T3|Quina acció recomana l'algorisme de Clark?|Esperar fins tenir prou espai abans d'anunciar nova finestra|Tancar la connexió TCP|Reenviar sempre els segments petits
+T3|El TCP segmentation offload...|Fa que l'enviament de grans volums de dades sigui més eficient.|Fa que l'enviament de grans volums de dades sigui menys eficient.|Fa que l'enviament de grans volums de dades sigui més lent.
+T3|Què fa el Fast Recovery un cop es detecta una pèrdua?|Redueix la finestra de congestió a la meitat|Tanca la connexió|Torna a Slow Start
 T4|Quina d'aquestes regles port forwarding sembla bona?|if destination port = 8080 then destination ip = 192.168.1.2.|if source port = 80 then destination ip = 192.168.1.20.|if destination port = 80 then destination ip = 93.118.1.20.
 T4|Quants bits té el camp Version de la capçalera IPv4?|4.|32.|8.
 T4|En quin cas no es perd un datagrama?|Quan n'arriben tots els seus fragments.|Quan arriba a un rúter amb la memòria plena.|Quan hi ha un error de transmissió a nivell d'enllaç i no s'usa ARQ.
 T4|Què té d'especial la IP 169.254.33.19?|És d'autoconfiguració.|Fa referència a la pròpia màquina.|És de broadcast.
 T4|Quants bits té el camp Source Address de la capçalera IPv4?|32.|16.|8.
 T4|Què significa l'acrònim ARP?|Address Resolution Protocol.|Advanced Resolution Protocol.|Address Restful Protocol.
-T4|Quin d'aquests camps de la capçalera IPv4 no es fa servir en la fragmentació?|TTL|Offset.|MF.
+T4|Quin d'aquestes camps de la capçalera IPv4 no es fa servir en la fragmentació?|TTL|Offset.|MF.
 T4|Quina d'aquestes adreces IP podria ser la interna d'un rúter domèstic?|192.168.200.1.|1.2.3.4.|195.23.17.9.
 T4|Quina d'aquestes adreces IP no forma part de la xarxa 192.168.1.0/24?|192.168.7.3.|192.168.1.99.|192.168.1.100.
 T4|Quin missatge representaria una resposta ARP?|192.168.0.8 is at 1a:3f:25:78:3b:c1.|192.168.0.8 is at 192.168.0.12.|192.368.1.8 is at 1a:3f:25:78:3b:c1.
@@ -167,7 +198,7 @@ T4|Quants bits per a host té una xarxa /26?|6|8|2
 T4|Quina és la màscara d'una xarxa /24?|255.255.255.0|255.0.0.0|255.255.0.0
 T4|Quin tipus de NAT s’anomena també NAT 2?|NAT amb restricció d’adreça|NAT simètric|NAT sense restricció
 T4|Per què és necessari un servidor intermediari en l’exemple de la càmera de vigilància?|Per saber la IP pública i port NAT on està la càmera|Per augmentar la velocitat de transmissió|Per protegir la càmera amb contrasenya
-T4|L'adreça MAC destí per una consulta ARP és...|broadcast|multicast|unicast
+T4|L'adreça MAC destí per una consulta ARP és...|ff.ff.ff.ff.ff.ff.|broadcast|multicast|unicast
 T4|Quin tipus de NAT s’anomena també NAT 3?|NAT amb restricció d’adreça i port|NAT sense restricció|NAT amb restricció d’adreça
 T4|Què és CG-NAT?|NAT implementat per l’operadora|NAT només per IPv6|NAT amb IP fixa
 T4|Quin tipus de NAT només permet connexions des de la mateixa IP i port?|NAT amb restricció d’adreça i port|NAT sense restricció|NAT amb restricció d’adreça
@@ -183,6 +214,17 @@ T4|Quina máscara de xarxa es correspon amb el CIDR/16?|255.255.0.0.|255.255.255
 T4|Què té d'especial la IP 100.392.918.37?|No és una adreça IP vàlida.|La pot assignar l'operadora a una línia mòbil.|És de broadcast.
 T4|Quina d'aquestes afirmacions és correcta?|Si l'adreça IP origen i destí del datagrama corresponen a una xarxa diferent, el datagrama s'envia dins la LAN sobre una trama dirigida a la MAC corresponent a la IP del node gateway.|Si l'adreça MAC origen i destí del datagrama corresponen a la mateixa xarxa, el datagrama s'envia dins la LAN sobre un datagrama dirigit a la IP origen.|Si l'adreça IP origen i desti del datagrama són a la mateixa IP, el datagrama s'envia dins la LAN sobre una trama dirigida a la MAC corresponent a la IP destí.
 T4|Quina d'aquestes afirmacions és certa?|Les capçaleres de protocols solen ocupar menys bytes que les dades de l'aplicació.|Les capçaleres de protocols solen ocupar els mateixos bytes que les dades de l'aplicació.|Les capçaleres de protocols solen ocupar més bytes que les dades de l'aplicació.
+T4|Quina és la finalitat principal del port forwarding?|Permetre accedir des d'Internet a serveis dins la xarxa privada|Reduir la latència.|Assegurar la xarxa
+T4|Quin protocol permet conèixer si un client està rere un NAT?|STUN|DHCP|DNS
+T4|Què crea el "forat NAT" en el router?|Una correspondència entre una IP interna i una IP externa|Un tallafocs|Una connexió directa a Internet
+T4|En quin cas es pot accedir a un node de la xarxa interna des de qualsevol lloc?|NAT sense restricció|NAT amb restricció de port|NAT amb restricció d'adreça
+T4|Què fa un servei de DNS dinàmic?|Associa un domini a una IP que pot canviar|Encripta les dades del NAT|Manté fixa la IP pública
+T4|En un escenari full cone NAT, per poder accedir des d'internet a una càmera en una xarxa interna...|...cal que la càmera contacti periòdicament amb un servidor amb IP pública.|Que la càmera contacti periòdicament amb un servidor amb IP privada.|...cal que la càmera contacti periòdicament amb l'app de l'usuari.
+T4|Quina és la máscara decimal per a una xarxa /30?|255.255.255.252|255.255.255.123|255.255.255.192
+T4|Quina classe de xarxa permetia disposar de menys xarxes?|Classe A|Classe B|Classe C
+T4|Quin és el rang d'adreces útils de la subxarxa 193.144.16.192/26?|193.144.16.193-193.144.16.254|193.144.16.192-193.144.16.255|193.144.16.193-193.144.16.255
+T4|Quants bits de xarxa tenien les adreces de classe A?|8|24|16
+T4|Quants bits de xarxa tenien les adreces de classe B?|16|8|24
 T5|Què significa que el segon nibble per l'esquerra d'una MAC valgui E?|Que és una MAC privada.|Que és una MAC de TP-Link.|Que és una MAC pública.
 T5|Una connexió a la Wi-Fi, com es considera?|De medi compartit|Punt a punt|Lent.
 T5|En quin cas un node té accés al medi fins i tot si no transmet dades?|Amb FDM|Amb TDM|Amb WDM.
@@ -190,7 +232,7 @@ T5|En les xarxes cablejades, quin protocol de control d'accés al medi s'utilitz
 T5|Què fa un commutador amb la adreça MAC de destí?|Mira si la té a la taula de re-adreçament.|Mira l'adreça IP de destí.|Mira si la té a la taula ARP.
 T5|Què és l'adreça MAC?|L'adreça que identifica una NIC.|L'adreça MAC és la d'un fabricant com Apple.|L'adreça del rúter.
 T5|Quina d'aquestes tècniques de multiplexació es basa en la longitud d'ona?|WDM|FDM|TDM.
-T5|Què identifiquen els primers 3 parells de nibbles en una adreça MAC?|Identifiquen el fabricant de la NIC.|Suman 32|Identifica la NIC.
+T5|Quint identifiquen els primers 3 parells de nibbles en una adreça MAC?|Identifiquen el fabricant de la NIC.|Suman 32|Identifica la NIC.
 T5|En quin tipus de multiplexació es fa servir la fibra òptica?|WDM|TDM|FDM.
 T5|En un sistema stop and wait, un node envia una trama...|Aleshores activa un temporitzador (timeout) i si aquest expira i no ha rebut l'ACK torna a enviar la trama.|Aleshores activa un temporitzador (timeout) i si aquest expira i no ha rebut l'ACK avisa la capa d'aplicació.|Aleshores activa un temporitzador (timeout) i si aquest expira i ha rebut l'ACK torna a enviar la trama.
 T5|Com sol acabar una trama?|Amb el CRC.|Amb l'adreça MAC origen.|Amb un postàmbul.
@@ -204,8 +246,18 @@ T5|Com sol començar una trama?|Amb un patró de bytes que en delimita el princi
 T5|Quants bytes té una MAC Ethernet?|6.|4.|8.
 T5|L'enviament de senyal en banda base...|...no modifica el senyal original.|...comprimeix la base del senyal.|...modula el senyal original.
 T5|En quin sistema cada transmissió té el seu canal de freqüència?|FDM|TDM|WDM
-T6|Quin d'aquests estàndards Wi-Fi deu ser el més antic?|802.11b|802.11n|802.11ac
-T6|Quin d'aquests estàndards es correspon amb Fast Ethernet?|100BASE-TX|1000BASE-LX|10BASE5
+T5|Quin és el màxim de velocitat tipic del ZigBee?|250 kbps|2 Mbps|10 Mbps
+T5|Quin tipus de modulació empra l'ADSL per dividir l'ample de banda?|Modulació amb múltiples portadores|Modulació digital amb trames ATM|Modulació per amplitud en una sola portadora
+T5|Què és un ZED en una xarxa ZigBee?|Un concentrador per interconnectar dispositius|Un sensor de llum|Un dispositiu de fibra òptica
+T5|Quina caracteristica distingeix el LoRa?|Abast de desenes de quilòmetres|Consum elevat d'energia|Transmissió a 1 Gbps
+T5|Quina tecnologia utilitzava trames identificades per DLCI?|Frame Relay|ZigBee|Bluetooth
+T5|Per què l'ADSL no és adequada per a videotrucades?|Perquè té poca velocitat de pujada|Perquè només transmet veu analògica|Perquè utilitza fibra òptica
+T5|Quina tecnologia consumeix menys energia que Wi-Fi i té un abast curt?|Bluetooth|FDDI|Fibre Channel
+T5|Quina tecnologia permet fer "network slicing"?|5G|Bluetooth|PON
+T5|Quina tecnologia d'enllaç permet subxarxes virtuals anomenades "network slicing"?|5G|Bluetooth|Frame Relay
+T5|Què indica la "A" a ADSL?|Asynchronous|Aggregate|Advanced
+T6|Quin d'aquestes estàndards Wi-Fi deu ser el més antic?|802.11b|802.11n|802.11ac
+T6|Quin d'aquestes estàndards es correspon amb Fast Ethernet?|100BASE-TX|1000BASE-LX|10BASE5
 T6|Quin és l'element central d'una Wi-Fi en mode infraestructura?|El punt d'accés (access point)|L'encaminador (rúter)|El commutador (switch)
 T6|Quina és la MTU d'Ethernet?|1500 bytes|1500 bits|1500 KB
 T6|Si una estació Wi-Fi vol transmetre, què fa?|Envia un RTS|Espera un RTS|Envia un CTS
@@ -214,11 +266,11 @@ T6|Un node SDN compatible amb OpenFlow...|Té una taula de configuració amb reg
 T6|Què és un sistema mallat de Wi-Fi (mesh)?|Un sistema que permet repartir petits satèl·lits per augmentar l'abast d'una LAN sense fils de forma fàcil|Un sistema que permet repartir la velocitat de la Wi-Fi|Un sistema que permet repartir punts d'accés cablejats per augmentar l'abast d'una LAN sense fils
 T6|Ethernet ofereix un servei fiable?|no, però sol donar pocs errors|sí|no, però sol donar molts errors
 T6|Què vol dir el Collision Avoidance del CSMA/CA?|que els nodes esperen a que el canal estigui lliure abans de transmetre.|que el torn de transmissió el dicta l'AP evitant així collisions de dades.|totes les altres respostes són correctes.
-T6|Quin d'aquests noms no es correspon amb un pla de la SDN?|Messaging.|Data.|Management.
+T6|Quin d'aquestes noms no es correspon amb un pla de la SDN?|Messaging.|Data.|Management.
 T6|Què significa BNC?|Bayonet-Neil Concelman.|Bayesian Network Connector.|Best Network Connector.
 T6|Quants plans defineix una SDN?|Tres plans.|Dos plans.|Cinc plans.
 T6|En un entorn Wi-Fi, els missatges de control (RTS, CTS)...|...informen del temps que el canal estarà ocupat.|...faciliten que hi hagi collisions.|...afegeixen eficiència a la transmissió de dades.
 T6|Quin tipus de connector usaven les Ethernet amb topologia de bus i cable...|BNC.|BCN.|RJ45.
-T6|Quin d'aquests estàndards Ethernet ofereix més taxa de bits?|10GBASE-T.|1000BASE-LX.|100BASE-TX.
+T6|Quin d'aquestes estàndards Ethernet ofereix més taxa de bits?|10GBASE-T.|1000BASE-LX.|100BASE-TX.
 T6|Quin estàndard recull les tecnologies Wi-Fi?|802.11.|802.1.|802.3.
 T6|Quan es va publicar el primer article científic sobre Ethernet?|1976.|1987.|1967.
