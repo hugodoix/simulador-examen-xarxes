@@ -5,7 +5,7 @@ T1|Quina velocitat és més elevada?|1 MBps.|1 Mbps.|1 kbps.
 T1|El retard de propagació és...|... el temps que triga el senyal a ser transmès pel medi.|el temps que triga la informació a ser processada pel node (control d'errors, etc.).|el temps que triga el dispositiu de xarxa a transmetre els bits cap al medi de transmissió.
 T1|El troughput d'una xarxa es pot definir...|com la quantitat efectiva de bits que transmet un enllaç.|com el temps que triga un paquet en anar i tornar.|com la variació de retard que experimenta.
 T1|Quin és l'ample de banda que proporciona Gigabit Ethernet?|1000 Mbps.|10 Mbps.|10 Gbps.
-T1|Quina velocitat és més elevada?|1 MBps.|9 Mbps.|1 kbps.
+T1|Quina velocitat és més elevada?|9 Mbps.|1 MBps.|1 kbps.
 T1|Què limita la velocitat de connexió a Internet des de dins de casa?|L'enllaç que té menys ample de banda.|L'enllaç que té més ample de banda.|El programa que fa servir menys la xarxa.
 T1|Què passa si hi ha un error de transmissió no recuperable?|Es perd el paquet.|Rebrem el paquet amb menys retard.|El paquet arriba abans.
 T1|Si volem connectar quatre ordinadors amb cable a una LAN, què necessitem?|Un commutador.|Un rúter.|Un punt d'accés.
@@ -274,3 +274,4 @@ T6|Quin tipus de connector usaven les Ethernet amb topologia de bus i cable...|B
 T6|Quin d'aquestes estàndards Ethernet ofereix més taxa de bits?|10GBASE-T.|1000BASE-LX.|100BASE-TX.
 T6|Quin estàndard recull les tecnologies Wi-Fi?|802.11.|802.1.|802.3.
 T6|Quan es va publicar el primer article científic sobre Ethernet?|1976.|1987.|1967.
+
